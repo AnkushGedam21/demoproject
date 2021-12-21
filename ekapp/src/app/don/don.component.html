@@ -1,0 +1,16 @@
+<p >don no che component</p>
+<p>{{date1 | date:'MM/dd/yyyy'}}</p>
+<p>{{amount | currency:'INR'}}</p>
+<h2>Power Booster</h2>
+<p>Super power boost:{{2 | exponentialStrength: 10}}</p>
+<hr>
+<h2>Power Boost Calculator</h2>
+<label for="power-input">Normal Power:</label>
+<input id="power-input" type="text" [(ngModel)]="power">
+<label for="boost-input">Boost Factor: </label>
+<input id="boost-input" type="text" [(ngModel)]="factor">
+<p>
+    Super Hero Power:{{power | exponentialStrength:factor}}
+</p>
+
+<hr>

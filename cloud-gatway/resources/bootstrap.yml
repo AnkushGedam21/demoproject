@@ -1,0 +1,23 @@
+server:
+  port: 9191
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8671/eureka
+spring:
+  application:
+    name: API-GATEWAY
+  cloud.gateway:
+    discovery:
+      locator:
+        enabled: true
+        lowerCaseServiceId: true
+    routes:
+    - id: ADMIN-SERVICE
+      uri: lb://ADMIN-SERVICE
+      predicates:
+        - Path=/admin/**
+    - id: USER-SERVICE
+      uri: lb://USER-SERVICE
+      predicates:
+        - Path=/**
